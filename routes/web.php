@@ -98,3 +98,6 @@ Route::post('/nova-senha', [ClienteController::class, 'redefinirSenha'])->name('
 
 Route::delete('/clientes/{cliente}', [ClienteController::class, 'deletarCliente'])->name('cliente.deletar');
 Route::put('/clientes/{cliente}', [ClienteController::class, 'alterarCliente'])->name('cliente.alterar');
+
+
+// ROTAS DE TESTE

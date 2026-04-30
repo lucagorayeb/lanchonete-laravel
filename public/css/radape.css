@@ -1,0 +1,699 @@
+/*
+================================================================================
+Views da pasta radape baseadas no Figma
+================================================================================
+Este arquivo concentra os estilos das paginas institucionais e do cardapio
+criado a partir dos nodes do Figma. Os comentarios explicam se cada bloco e
+um cabecalho, link, botao, campo de formulario, card ou area de conteudo.
+================================================================================
+*/
+
+/* Base da pagina: remove o espaco do rodape fixo antigo e define a tipografia. */
+body {
+    padding-bottom: 0;
+}
+
+/* Container reutilizavel: limita a largura do conteudo como no frame desktop do Figma. */
+.radape-shell {
+    width: min(100% - 48px, 1294px);
+    margin-inline: auto;
+}
+
+/* Wrapper das views: area branca principal onde o HTML de cada pagina e renderizado. */
+.radape-page {
+    min-height: 70vh;
+    color: #03081f;
+    background: #ffffff;
+    font-family: Inter, Arial, sans-serif;
+}
+
+/* Cabecalho: faixa cinza superior com logo e navegacao textual. */
+.radape-header {
+    min-height: 182px;
+    display: flex;
+    align-items: center;
+    background: #d9d9d9;
+}
+
+/* Layout interno do cabecalho: alinha a logo a esquerda e os links a direita. */
+.radape-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+/* Link da logo: area clicavel que leva o usuario de volta ao inicio. */
+.radape-header__brand {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Imagem da logo: asset baixado do Figma para a pasta public/img. */
+.radape-header__logo {
+    width: 224px;
+    max-width: 44vw;
+    height: auto;
+    display: block;
+}
+
+/* Navegacao: grupo de links comuns do cabecalho institucional. */
+.radape-header__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 14px 22px;
+}
+
+/* Link do cabecalho: funciona como botao de navegacao em formato de texto. */
+.radape-header__nav a {
+    color: #03081f;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Artigo institucional: bloco de leitura usado em cookies, termos e politica de e-mail. */
+.radape-article {
+    padding-block: 64px 96px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 2.25;
+}
+
+/* Variante compacta: usada na politica de e-mail, que tem menos texto no Figma. */
+.radape-article--compact {
+    min-height: 774px;
+}
+
+/* Titulo principal: identifica o assunto da pagina legal ou institucional. */
+.radape-article h1 {
+    margin: 0 0 22px;
+    color: #03081f;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+/* Subtitulo de secao: divide os assuntos dentro de artigos longos. */
+.radape-article h2 {
+    margin: 28px 0 8px;
+    color: #03081f;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.45;
+}
+
+/* Paragrafo: texto corrido do conteudo institucional. */
+.radape-article p {
+    margin: 0 0 14px;
+    max-width: 1294px;
+    color: #050505;
+    font-size: inherit;
+}
+
+/* Lista: conjunto de itens explicativos dentro das politicas e termos. */
+.radape-article ul {
+    margin: 0 0 18px 22px;
+    padding: 0;
+}
+
+/* Item de lista: cada linha detalha uma regra ou categoria. */
+.radape-article li {
+    margin-bottom: 8px;
+    padding-left: 6px;
+}
+
+/* Hero de historia: area com imagem grande no topo da pagina Nossa Historia. */
+.radape-story-hero {
+    padding-block: 56px 0;
+}
+
+/* Imagem da historia: asset principal, com proporcao e recorte do Figma. */
+.radape-story-hero__image {
+    width: 100%;
+    aspect-ratio: 1294 / 706;
+    display: block;
+    object-fit: cover;
+}
+
+/* Rodape: faixa cinza inferior compartilhada pelas views novas. */
+.radape-footer {
+    background: rgba(217, 217, 217, 0.6);
+}
+
+/* Grid do rodape: distribui marca, newsletter e listas de links. */
+.radape-footer__grid {
+    min-height: 314px;
+    display: grid;
+    grid-template-columns: 1.35fr 2.1fr 1fr 1.25fr;
+    align-items: start;
+    gap: 52px;
+    padding-block: 62px 42px;
+}
+
+/* Logo do rodape: reforco visual da marca no fim da pagina. */
+.radape-footer__logo {
+    width: 228px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 40px;
+}
+
+/* Texto pequeno do rodape: dados cadastrais e aviso da newsletter. */
+.radape-footer p,
+.radape-footer__small {
+    margin: 0;
+    color: #03081f;
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+/* Titulos do rodape: rotulos das colunas de links e newsletter. */
+.radape-footer h2 {
+    margin: 0 0 18px;
+    color: #03081f;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+/* Formulario de newsletter: agrupa campo de e-mail e botao de inscricao. */
+.radape-newsletter-form {
+    width: min(100%, 420px);
+    min-height: 50px;
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border-radius: 999px;
+    background: #d9d9d9;
+}
+
+/* Campo de formulario: input onde o usuario digita o email. */
+.radape-newsletter-form input {
+    min-width: 0;
+    flex: 1;
+    border: 0;
+    padding: 0 24px;
+    color: #03081f;
+    background: transparent;
+    font: 600 13px/1 Inter, Arial, sans-serif;
+}
+
+/* Botao de newsletter: acao amarela que envia o formulario. */
+.radape-newsletter-form button {
+    min-width: 146px;
+    border: 0;
+    padding-inline: 22px;
+    color: #050505;
+    background: #ffda09;
+    font: 800 15px/1 Inter, Arial, sans-serif;
+    cursor: pointer;
+}
+
+/* Estado de foco: ajuda navegacao por teclado no input, botao e links. */
+.radape-newsletter-form input:focus,
+.radape-newsletter-form button:focus,
+.radape-footer a:focus,
+.radape-header__nav a:focus,
+.radape-product-card:focus {
+    outline: 3px solid rgba(252, 138, 6, 0.45);
+    outline-offset: 3px;
+}
+
+/* Link pequeno da politica de e-mail: ancora textual dentro do aviso anti-spam. */
+.radape-footer__small a {
+    color: #03081f;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Redes sociais: linha de icones clicaveis. */
+.radape-socials {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* Link social: botao visual sem texto, identificado por aria-label no HTML. */
+.radape-socials a {
+    width: 38px;
+    height: 38px;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+.radape-socials a:hover {
+    transform: translateY(-2px);
+}
+
+/* Icone social: imagem pequena baixada do Figma. */
+.radape-socials img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Coluna de links: lista vertical de ancoras institucionais. */
+.radape-footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Link do rodape: navegacao textual sublinhada conforme o Figma. */
+.radape-footer__links a {
+    color: #050505;
+    font-size: 12px;
+    line-height: 1.2;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Hero do cardapio completo: banner escuro com texto, imagem e nota. */
+.radape-menu-hero {
+    min-height: 398px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    overflow: hidden;
+    margin-top: 24px;
+    padding: 48px;
+    border-radius: 10px;
+    color: #ffffff;
+    background: #03081f;
+}
+
+/* Texto do hero do cardapio: nome do restaurante e frase curta. */
+.radape-menu-hero__copy p {
+    margin: 0 0 12px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.radape-menu-hero__copy h1 {
+    margin: 0 0 24px;
+    font-size: clamp(38px, 6vw, 64px);
+    font-weight: 800;
+    line-height: 1;
+}
+
+/* Chip informativo: selo pequeno com tempo de entrega. */
+.radape-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 18px;
+    border-radius: 999px;
+    color: #03081f;
+    background: #ffda09;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+/* Midia do hero: area com imagem do combo e card de avaliacao sobreposto. */
+.radape-menu-hero__media {
+    position: relative;
+}
+
+.radape-menu-hero__media img {
+    width: 100%;
+    max-height: 310px;
+    display: block;
+    object-fit: contain;
+}
+
+/* Card de avaliacao: resumo visual com nota, estrelas e quantidade de reviews. */
+.radape-rating-card {
+    position: absolute;
+    left: 0;
+    bottom: 18px;
+    min-width: 150px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    color: #03081f;
+    background: #ffffff;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+}
+
+.radape-rating-card strong {
+    display: block;
+    font-size: 30px;
+    line-height: 1;
+}
+
+.radape-rating-card span {
+    display: block;
+    color: #ffda09;
+    font-size: 14px;
+}
+
+.radape-rating-card small {
+    color: #555b66;
+    font-size: 11px;
+}
+
+/* Barra de categorias: faixa amarela com links em formato de abas. */
+.radape-category-nav {
+    margin-top: 24px;
+    background: #ffda09;
+}
+
+.radape-category-nav .radape-shell {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    overflow-x: auto;
+}
+
+/* Link de categoria: botao textual que rola para uma secao do cardapio. */
+.radape-category-nav a {
+    flex: 0 0 auto;
+    padding: 10px 16px;
+    border-radius: 999px;
+    color: #03081f;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.radape-category-nav a.is-active,
+.radape-category-nav a:hover {
+    color: #ffffff;
+    background: #03081f;
+}
+
+/* Secoes do cardapio: espacamento entre categorias de produtos. */
+.radape-menu-sections {
+    padding-block: 48px 60px;
+}
+
+.radape-menu-section + .radape-menu-section {
+    margin-top: 64px;
+}
+
+.radape-menu-section h2 {
+    margin: 0 0 24px;
+    color: #050505;
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.radape-menu-section h2.is-orange {
+    color: #fc8a06;
+}
+
+/* Grid de produtos: organiza os cards em colunas responsivas. */
+.radape-product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* Card de produto: link clicavel com informacao do item e imagem. */
+.radape-product-card {
+    min-height: 204px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.95fr;
+    gap: 18px;
+    align-items: stretch;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    color: #050505;
+    background: #fdfdfd;
+    box-shadow: 4px 4px 28px rgba(0, 0, 0, 0.14);
+    text-decoration: none;
+}
+
+/* Texto do card: nome, descricao e preco do produto. */
+.radape-product-card__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radape-product-card__copy strong {
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.radape-product-card__copy span {
+    color: #222222;
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.radape-product-card__copy b {
+    margin-top: auto;
+    color: #03081f;
+    font-size: 15px;
+}
+
+/* Area da imagem do produto: mantem o recorte quadrado do Figma. */
+.radape-product-card__media {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.radape-product-card__media img {
+    width: 100%;
+    height: 100%;
+    min-height: 160px;
+    display: block;
+    object-fit: cover;
+}
+
+/* Botao circular de adicionar: icone visual de soma no canto do card. */
+.radape-add-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 58px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 34px 0 0 0;
+    color: #03081f;
+    background: rgba(255, 255, 255, 0.92);
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+/* Grade de informacoes: tres colunas para entrega, contato e horario. */
+.radape-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-bottom: 64px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+/* Card informativo: bloco de texto com horarios e contatos. */
+.radape-info-grid article {
+    padding: 44px 38px;
+    background: #fbfbfb;
+}
+
+.radape-info-grid article.is-dark {
+    color: #ffffff;
+    background: #03081f;
+}
+
+.radape-info-grid h2 {
+    margin: 0 0 24px;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.radape-info-grid p {
+    margin: 0 0 9px;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+/* Avaliacoes: faixa cinza inferior antes do rodape. */
+.radape-reviews {
+    padding-block: 46px 60px;
+    background: #d9d9d9;
+}
+
+.radape-reviews__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.radape-reviews__head h2 {
+    margin: 0;
+    color: #050505;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+/* Botoes decorativos de review: setas circulares para simular navegacao. */
+.radape-review-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.radape-review-buttons span {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #03081f;
+    background: #ffda09;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+/* Grid de depoimentos: organiza cards de avaliacao. */
+.radape-review-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* Card de review: depoimento individual do cliente. */
+.radape-review-card {
+    min-height: 214px;
+    padding: 26px;
+    border-radius: 4px;
+    background: #ffffff;
+}
+
+.radape-review-card h3 {
+    margin: 0 0 18px;
+    color: #03081f;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.radape-review-card h3 span {
+    display: block;
+    color: #fc8a06;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.radape-review-card p {
+    margin: 0 0 18px;
+    color: #111111;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.radape-review-card strong {
+    color: #ffda09;
+    font-size: 14px;
+}
+
+@media (max-width: 1024px) {
+    .radape-footer__grid,
+    .radape-product-grid,
+    .radape-info-grid,
+    .radape-review-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .radape-footer__newsletter {
+        grid-column: span 2;
+    }
+
+    .radape-menu-hero {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .radape-shell {
+        width: min(100% - 28px, 1294px);
+    }
+
+    .radape-header {
+        min-height: 150px;
+        padding-block: 24px;
+    }
+
+    .radape-header__inner,
+    .radape-reviews__head {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .radape-header__nav {
+        justify-content: flex-start;
+    }
+
+    .radape-article {
+        padding-block: 42px 64px;
+        font-size: 14px;
+        line-height: 1.9;
+    }
+
+    .radape-article h1 {
+        font-size: 24px;
+    }
+
+    .radape-article h2 {
+        font-size: 18px;
+    }
+
+    .radape-story-hero {
+        padding-block-start: 32px;
+    }
+
+    .radape-footer__grid,
+    .radape-product-grid,
+    .radape-info-grid,
+    .radape-review-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .radape-footer__newsletter {
+        grid-column: auto;
+    }
+
+    .radape-footer__grid {
+        gap: 34px;
+        padding-block: 42px;
+    }
+
+    .radape-newsletter-form {
+        width: 100%;
+    }
+
+    .radape-newsletter-form button {
+        min-width: 128px;
+        padding-inline: 16px;
+        font-size: 13px;
+    }
+
+    .radape-menu-hero {
+        padding: 28px;
+    }
+
+    .radape-product-card {
+        grid-template-columns: 1fr;
+    }
+
+    .radape-product-card__media img {
+        aspect-ratio: 16 / 10;
+    }
+}

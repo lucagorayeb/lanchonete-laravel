@@ -144,7 +144,7 @@ class ClienteController extends Controller
     public function atualizarPerfilWeb(Request $request) {
         $clienteId = session('cliente_id');
         if (!$clienteId) {
-            return redirect()->route('cliente.index');
+            return redirect()->route('autorizacao.login');
         }
 
         $cliente = \App\Models\Cliente::find($clienteId);
@@ -161,6 +161,6 @@ class ClienteController extends Controller
 
     public function sair(Request $request) {
         $request->session()->flush();
-        return redirect()->route('cliente.index');
+        return redirect()->route('bemvindo.index');
     }
 }

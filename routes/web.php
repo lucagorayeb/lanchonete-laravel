@@ -23,6 +23,16 @@ Route::get('/pedido', function () {
 
 Route::post('/pagamento', [PedidoController::class, 'calcularTotal'])->name('pagamento.index');
 
+// ROTAS DAS VIEWS DO FIGMA CRIADAS NA PASTA RADAPE
+Route::view('/figma-cardapio', 'radape.cardapio-completo')->name('radape.cardapio');
+Route::view('/nossa-historia', 'radape.nossa-historia')->name('radape.nossa-historia');
+Route::view('/cookies', 'radape.cookies')->name('radape.cookies');
+Route::view('/termos-e-condicoes', 'radape.termos-e-condicoes')->name('radape.termos');
+Route::view('/politica-de-email', 'radape.politica-email')->name('radape.politica-email');
+Route::view('/privacidade', 'radape.politica-email')->name('radape.privacidade');
+Route::view('/ajuda', 'radape.ajuda')->name('radape.ajuda');
+Route::view('/trabalhe-conosco', 'radape.trabalhe-conosco')->name('radape.trabalhe-conosco');
+
 /* Route::get('/cliente', function () {
     return view('site/cardapio',  ['produtos' => \App\Models\Produto::all()]);
 })->name('cliente.index'); */ 

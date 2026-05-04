@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
     return {
         plugins: [
             laravel({
-                input: ['resources/css/app.css', 'resources/js/app.js'],
+                input: ['resources/css/app.css', 'resources/css/cardapio.css', 'resources/css/radape.css', 'resources/js/app.js', 'resources/js/cookieslocalizacao.js'],
                 refresh: true,
             }),
             tailwindcss(),

@@ -7,13 +7,14 @@
 
 
 ## Midleware
-> Diferenciar rota de usuário logado, usuário admin e usuário logado.
+//> Diferenciar rota de usuário logado, usuário admin e usuário logado.
 
 ## Validations 
-> Validar os dados que são enviados
+//> Validar os dados que são enviados
 
 ## Notifications 
 
+## Seeders
 
 ## Metodo de Pagamento 
 > Tirar calculo do pagamento do front-end 
@@ -25,7 +26,7 @@
 
 ## Acompahamento do pedido -> Ajax -> Modal () 
 
-# Luca - Remodelagens para fazer
+# Luca - modelagens para fazer
 
 ## Pedidos
 * Repensar em como um pedido vai ser criado para só criar um pedido quando eu usuário criar não quando ele fizer log-in.

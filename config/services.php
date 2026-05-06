@@ -35,4 +35,34 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | OAuth2 — Google (Socialite)
+    | Temporariamente pausado
+    |--------------------------------------------------------------------------
+    | Credenciais obtidas em: https://console.cloud.google.com
+    | Redirect URI cadastrada no Google: APP_URL/auth/google/callback
+    |
+    'google' => [
+        'client_id'     => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect'      => env('GOOGLE_REDIRECT_URI', '/auth/google/callback'),
+    ],
+    */
+
+    /*
+    |--------------------------------------------------------------------------
+    | OAuth2 — Facebook (Socialite)
+    | Temporariamente pausado
+    |--------------------------------------------------------------------------
+    | Credenciais obtidas em: https://developers.facebook.com
+    | Redirect URI cadastrada no Facebook: APP_URL/auth/facebook/callback
+    |
+    'facebook' => [
+        'client_id'     => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect'      => env('FACEBOOK_REDIRECT_URI', '/auth/facebook/callback'),
+    ],
+    */
+
 ];

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Admin;
 use App\Models\User;
 
 return [
@@ -38,9 +39,16 @@ return [
     */
 
     'guards' => [
+        // Guard dos clientes finais — NÃO ALTERAR
         'web' => [
-            'driver' => 'session',
+            'driver'   => 'session',
             'provider' => 'users',
+        ],
+
+        // Guard exclusivo dos funcionários da lanchonete (Filament Admin)
+        'admin' => [
+            'driver'   => 'session',
+            'provider' => 'admins',
         ],
     ],
 
@@ -62,15 +70,17 @@ return [
     */
 
     'providers' => [
+        // Provider dos clientes — NÃO ALTERAR
         'users' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', User::class),
+            'model'  => env('AUTH_MODEL', User::class),
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        // Provider dos funcionários — NOVO
+        'admins' => [
+            'driver' => 'eloquent',
+            'model'  => Admin::class,
+        ],
     ],
 
     /*
@@ -95,8 +105,16 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
-            'expire' => 60,
+            'table'    => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
+            'expire'   => 60,
+            'throttle' => 60,
+        ],
+
+        // Broker de reset de senha isolado para admins
+        'admins' => [
+            'provider' => 'admins',
+            'table'    => 'admin_password_reset_tokens',
+            'expire'   => 60,
             'throttle' => 60,
         ],
     ],

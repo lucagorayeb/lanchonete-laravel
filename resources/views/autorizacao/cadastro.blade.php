@@ -9,6 +9,37 @@
             <div class="auth-block">
                 <h1 class="auth-form-title auth-form-title-center">CADASTRE-SE</h1>
 
+                {{--
+                ============================================
+                CADASTRO RÁPIDO COM REDES SOCIAIS
+                Temporariamente pausado
+                ============================================
+                <div class="auth-social">
+                    <a href="{{ route('auth.social.redirect', 'google') }}"
+                       class="auth-btn-social auth-btn-google"
+                       id="btn-cadastro-google">
+                        <span class="auth-social-badge google-badge">G</span>
+                        Cadastrar com Google
+                    </a>
+
+                    <a href="{{ route('auth.social.redirect', 'facebook') }}"
+                       class="auth-btn-social auth-btn-facebook"
+                       id="btn-cadastro-facebook">
+                        <span class="auth-social-badge facebook-badge">f</span>
+                        Cadastrar com Facebook
+                    </a>
+                </div>
+
+                <div class="auth-divider">
+                    <span class="auth-divider-line"></span>
+                    <span class="auth-divider-text">ou preencha o formulário</span>
+                    <span class="auth-divider-line"></span>
+                </div>
+                --}}
+
+                {{-- ============================================
+                     FORMULÁRIO TRADICIONAL
+                     ============================================ --}}
                 <form action="{{ route('cliente.salvar') }}" method="POST" class="auth-form">
                     @csrf
 
@@ -77,11 +108,17 @@
                     </div>
 
                     <div class="auth-form-actions">
-                        <button type="submit" class="btn auth-btn-yellow auth-btn-submit">
+                        <button type="submit" class="btn auth-btn-yellow auth-btn-submit" id="btn-cadastro-submit">
                             CADASTRAR
                         </button>
                     </div>
                 </form>
+
+                {{-- Link para login --}}
+                <p class="auth-footer-text">
+                    Já tem uma conta?
+                    <a href="{{ route('autorizacao.login') }}" class="auth-link-small">Entrar</a>
+                </p>
             </div>
         </div>
 

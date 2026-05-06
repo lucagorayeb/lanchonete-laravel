@@ -8,7 +8,7 @@ class Produto extends Model // A classe Produto herda tudo de Models (salvar() d
 {
     protected $table = 'produtos'; // Define qual tabela o banco vai usar
 
-    protected $fillable = ['nome', 'preco']; // Campos a serem preenchidos
+    protected $fillable = ['nome', 'descricao', 'preco', 'tipo', 'adicionais', 'image_path']; // Campos a serem preenchidos
 }
 
 

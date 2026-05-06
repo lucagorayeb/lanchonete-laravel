@@ -117,7 +117,9 @@ class PedidoController extends Controller{
         if (isset($carrinho[$id])) {
             $this->verificaRotaDeAlteracao($id, $rotaDeAlteracao, $carrinho);
         }
-        return redirect()->route('pedido.ver');
+        // Retorna para a página anterior (back) em vez de uma rota fixa (ex: pedido.ver).
+        // Isso permite que chamadas AJAX na página do cardápio consigam obter o HTML atualizado da mesma página.
+        return redirect()->back();
     }
 
     public function verificaRotaDeAlteracao(int $id, string $rotaDeAlteracao, array $carrinho){

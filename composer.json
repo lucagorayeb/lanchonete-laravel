@@ -8,8 +8,11 @@
     "require": {
         "php": "^8.3",
         "laravel/framework": "^13.0",
+        "laravel/socialite": "^5.27",
         "laravel/tinker": "^3.0",
-        "mercadopago/dx-php": "3.9.0"
+        "league/flysystem-aws-s3-v3": "^3.32",
+        "mercadopago/dx-php": "3.9.0",
+        "spatie/laravel-permission": "^7.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

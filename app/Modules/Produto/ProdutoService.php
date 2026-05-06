@@ -5,8 +5,18 @@ use App\Models\Produto;
 
 class ProdutoService{
 
-    public function adicionarProduto(string $nome, float $preco) : Produto{
-        $produto = Produto::create(['nome' => $nome, 'preco' => $preco]);
+    /**
+     * Cria e salva o registro do Produto na base de dados com as informações fornecidas.
+     */
+    public function adicionarProduto(string $nome, float $preco, ?string $descricao = null, ?string $tipo = null, ?string $adicionais = null, ?string $image_path = null) : Produto{
+        $produto = Produto::create([
+            'nome' => $nome, 
+            'descricao' => $descricao,
+            'preco' => $preco,
+            'tipo' => $tipo,
+            'adicionais' => $adicionais,
+            'image_path' => $image_path // Caminho gerado pelo upload no MinIO/S3
+        ]);
         return $produto;
     }
 

@@ -1,0 +1,104 @@
+/* =========================================================
+   Estilos globais do cabeçalho da página de admin
+========================================================= */
+.page-header {
+    background-color: var(--color-background);
+    padding: var(--spacing-lg) var(--spacing-md);
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.page-header.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+
+/* =========================================================
+   Container principal dos formulários
+========================================================= */
+.form-container {
+    padding: var(--spacing-lg) var(--spacing-md);
+    max-width: 400px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-top: 4px solid #333;
+}
+
+.form-container.large-form {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-top: none;
+}
+
+/* =========================================================
+   Botões e interações
+========================================================= */
+.btn-primary {
+    background-color: #333;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #000;
+}
+
+.btn-primary.btn-red {
+    background-color: var(--color-primary);
+}
+
+.btn-primary.btn-red:hover {
+    background-color: #d13028;
+}
+
+/* =========================================================
+   Campos de formulário e tipografia
+========================================================= */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    font-size: 15px;
+}
+
+.form-control:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+.admin-badge {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}

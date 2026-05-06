@@ -1,26 +1,22 @@
 <?php
 
-use App\Http\Controllers\AuthorController;
 use App\Modules\Produto\ProdutoController;
 use App\Modules\Cliente\ClienteController;
 use App\Modules\Pedido\PedidoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureTokenIsValid;
-use AWS\CRT\HTTP\Request;
 
 // ROTAS RELACIONADAS AO CLIENTE
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('/site/bem-vindo');
+})->name('bemvindo.index');
 
 Route::get('/cardapio', [App\Modules\Produto\ProdutoController::class, 'index'])->name('cardapio.index');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::get('/pedido', function () {
+    return view('site/pedido', ['total' => session('carrinhoTotal', 0)]);
+})->name('pedido.ver');
 
 Route::post('/pagamento', [PedidoController::class, 'calcularTotal'])->name('pagamento.index');
 
@@ -58,13 +54,18 @@ Route::get('autorizacao/login', function () {
 
 Route::post('autorizacao/login', [ClienteController::class, 'login'])->name('cliente.login');
 
-// ── OAUTH2 SOCIAL LOGIN (Google & Facebook) ───────────────────────────────
+/*
+|--------------------------------------------------------------------------
+| OAUTH2 SOCIAL LOGIN (Google & Facebook)
+| Temporariamente pausado
+|--------------------------------------------------------------------------
 Route::get('/auth/{provider}/redirect', [\App\Http\Controllers\Auth\SocialiteController::class, 'redirectToProvider'])
     ->name('auth.social.redirect');
 
 Route::get('/auth/{provider}/callback', [\App\Http\Controllers\Auth\SocialiteController::class, 'handleProviderCallback'])
     ->name('auth.social.callback');
-// ─────────────────────────────────────────────────────────────────────────
+|--------------------------------------------------------------------------
+*/
 
 
 Route::get('/cadastro', function () {
@@ -156,14 +157,3 @@ Route::post('/nova-senha', [ClienteController::class, 'redefinirSenha'])->name('
 
 Route::delete('/clientes/{cliente}', [ClienteController::class, 'deletarCliente'])->name('cliente.deletar');
 Route::put('/clientes/{cliente}', [ClienteController::class, 'alterarCliente'])->name('cliente.alterar');
-
-Route::get('/clientes', function () {
-    return view('site/perfil', ['clientes' => \App\Models\Cliente::all()]);
-})->name('cliente.index');
-
-Route::get('/autorizacao/login', [AuthorController::class, 'index'])->name('autorizacao.login');
-Route::get('/autorizacao/cadastro', [AuthorController::class, 'cadastro'])->name('autorizacao.cadastro');
-Route::post('/autorizacao/login', [AuthorController::class, 'loginAttempt'])->name('autorizacao.login');
-
-
-

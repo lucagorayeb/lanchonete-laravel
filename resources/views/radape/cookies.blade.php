@@ -28,7 +28,9 @@
         <h2>Com quem compartilhamos os dados de cookies?</h2>
         <p>As informacoes coletadas por meio de cookies podem ser compartilhadas com parceiros de tecnologia e marketing, incluindo:</p>
         <ul>
+            {{--
             <li>Google Analytics: para analise de comportamento e trafego.</li>
+            --}}
             <li>Provedores de Nuvem: para armazenamento seguro das sessoes de usuario.</li>
             <li>Redes de Publicidade: para exibicao de ofertas personalizadas do Mecdonin.</li>
         </ul>

@@ -9,9 +9,11 @@
             <div class="auth-block">
                 <h1 class="auth-form-title auth-form-title-center">CADASTRE-SE</h1>
 
-                {{-- ============================================
-                     CADASTRO RÁPIDO COM REDES SOCIAIS
-                     ============================================ --}}
+                {{--
+                ============================================
+                CADASTRO RÁPIDO COM REDES SOCIAIS
+                Temporariamente pausado
+                ============================================
                 <div class="auth-social">
                     <a href="{{ route('auth.social.redirect', 'google') }}"
                        class="auth-btn-social auth-btn-google"
@@ -28,12 +30,12 @@
                     </a>
                 </div>
 
-                {{-- Divisor --}}
                 <div class="auth-divider">
                     <span class="auth-divider-line"></span>
                     <span class="auth-divider-text">ou preencha o formulário</span>
                     <span class="auth-divider-line"></span>
                 </div>
+                --}}
 
                 {{-- ============================================
                      FORMULÁRIO TRADICIONAL
@@ -124,4 +126,3 @@
     </section>
 </div>
 @endsection
-

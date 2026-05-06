@@ -26,6 +26,7 @@
 
             <!-- Links sociais: cada ancora envolve um icone clicavel. -->
             <div class="radape-socials" aria-label="Redes sociais">
+                
                 <a href="#" aria-label="Facebook">
                     <img src="{{ asset('img/figma/radape/social-facebook.png') }}" alt="Facebook">
                 </a>

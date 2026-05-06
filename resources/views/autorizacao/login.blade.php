@@ -15,9 +15,11 @@
                     </div>
                 @endif
 
-                {{-- ============================================
-                     BOTÕES DE LOGIN SOCIAL (Google & Facebook)
-                     ============================================ --}}
+                {{--
+                ============================================
+                BOTÕES DE LOGIN SOCIAL (Google & Facebook)
+                Temporariamente pausados
+                ============================================
                 <div class="auth-social">
                     <a href="{{ route('auth.social.redirect', 'google') }}"
                        class="auth-btn-social auth-btn-google"
@@ -34,12 +36,12 @@
                     </a>
                 </div>
 
-                {{-- Divisor entre social login e formulário tradicional --}}
                 <div class="auth-divider">
                     <span class="auth-divider-line"></span>
                     <span class="auth-divider-text">ou entre com e-mail</span>
                     <span class="auth-divider-line"></span>
                 </div>
+                --}}
 
                 {{-- ============================================
                      FORMULÁRIO TRADICIONAL (E-MAIL + SENHA)
@@ -95,4 +97,3 @@
     </section>
 </div>
 @endsection
-

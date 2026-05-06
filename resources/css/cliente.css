@@ -313,6 +313,7 @@
   color: #1a1a1a;
 }
 
+/*
 .auth-btn-facebook {
   background: #1877F2;
   color: #ffffff;
@@ -323,6 +324,7 @@
   background: #1565d8;
   color: #ffffff;
 }
+*/
 
 /* Ícone SVG: tamanho fixo garantido com !important para neutralizar o Bootstrap */
 .auth-social-icon {
@@ -353,6 +355,7 @@
   line-height: 1;
 }
 
+/*
 .google-badge {
   background: #fff;
   color: #4285F4;
@@ -364,6 +367,7 @@
   color: #1877F2;
   border: 1.5px solid #1877F2;
 }
+*/
 
 /* ── DIVISOR "ou entre com e-mail" ──────────────────────────────────── */
 

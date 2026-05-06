@@ -33,6 +33,10 @@ Route::middleware('guest')->group(function () {
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
         ->name('password.store');
+    
+    Route::get('cardapio', function(){
+        return view('site/cardapio');
+    })->name('cardapio.index');
 });
 
 Route::middleware('auth')->group(function () {

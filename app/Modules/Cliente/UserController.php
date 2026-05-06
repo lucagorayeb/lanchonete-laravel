@@ -3,20 +3,19 @@ namespace App\Modules\Cliente;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Modules\Cliente\ClienteService;
-use App\Models\Cliente;
+use App\Modules\Cliente\UserService;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
-use App\Modules\Cliente\StoreClienteRequest;
 
-class ClienteController extends Controller
+class UserController extends Controller
 {
-    public function __construct(private ClienteService $service){
+    public function __construct(private UserService $service){
         $this->service = $service;
     }
 
-    public function salvarCliente(Request $request) {
+    public function salvarUser(Request $request) {
         //dd($request->all());
-        $cliente = $this->service->adcionarCliente(
+        $cliente = $this->service->adcionarUser(
             $request->nome, 
             $request->email, 
             $request->cpf, 
@@ -28,7 +27,7 @@ class ClienteController extends Controller
 
     public function login(Request $request) {
         //dd($request->all());
-        $cliente = Cliente::where('email', $request->email)->first();
+        $cliente = User::where('email', $request->email)->first();
 
         if (!$cliente || !password_verify($request->senha, $cliente->senha)) {
             if ($request->wantsJson()) {
@@ -51,7 +50,7 @@ class ClienteController extends Controller
     }
 
     public function solicitarRecuperacaoSenha(Request $request) {
-        $cliente = Cliente::where('nome', $request->nome)
+        $cliente = User::where('nome', $request->nome)
             ->where('email', $request->email)
             ->first();
 
@@ -86,7 +85,7 @@ class ClienteController extends Controller
         }
 
         $clienteId = session('password_reset_cliente_id');
-        $cliente = Cliente::find($clienteId);
+        $cliente = User::find($clienteId);
 
         if (!$cliente) {
             if ($request->wantsJson()) {
@@ -113,16 +112,16 @@ class ClienteController extends Controller
             ->with('mensagem', 'Senha redefinida com sucesso. Faça login novamente.');
     }
 
-    public function deletarCliente(Cliente $cliente) {
-        $this->service->deletarCliente($cliente);
-        return response()->json(['Mensagem' => 'Cliente Removido']);
+    public function deletarUser(User $cliente) {
+        $this->service->deletarUser($cliente);
+        return response()->json(['Mensagem' => 'User Removido']);
     }
 
-    public function alterarCliente(Request $request, Cliente $cliente) {
-        $cliente = $this->service->alterarCliente($request->only(['nome', 'email', 'cpf', 'numero']), $cliente);
+    public function alterarUser(Request $request, User $cliente) {
+        $cliente = $this->service->alterarUser($request->only(['nome', 'email', 'cpf', 'numero']), $cliente);
 
         if (!$cliente) {
-            return response()->json(['Mensagem' => 'Cliente Não Encontrado'], 404);
+            return response()->json(['Mensagem' => 'User Não Encontrado'], 404);
         }
 
         return response()->json($cliente);
@@ -134,9 +133,9 @@ class ClienteController extends Controller
             return redirect()->route('cliente.index');
         }
 
-        $cliente = \App\Models\Cliente::find($clienteId);
+        $cliente = \App\Models\User::find($clienteId);
         if ($cliente) {
-            $cliente = $this->service->alterarCliente($request->only(['nome']), $cliente);
+            $cliente = $this->service->alterarUser($request->only(['nome']), $cliente);
             session([
                 'nome_cliente' => $cliente->nome,
                 'sobrenome_cliente' => $request->sobrenome,

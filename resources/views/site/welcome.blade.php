@@ -13,7 +13,7 @@
                 </h1>
 
                 <div class="auth-home-actions">
-                    <a href="{{ route('autorizacao.login') }}" class="btn auth-btn-yellow">ENTRAR</a>
+                    <a href="{{ route('login') }}" class="btn auth-btn-yellow">ENTRAR</a>
                     <a href="{{ route('register') }}" class="btn auth-btn-white">CADASTRE-SE</a>
                     <a href="{{ route('cardapio.index') }}" class="auth-link-pink">VISITA SEM LOGIN</a>
                 </div>
